@@ -30,8 +30,6 @@ export class PostEntity {
         'virtual_likes',
         `${queryBuilder.alias}.id = virtual_likes.id`,
       );
-
-      return queryBuilder;
     },
   })
   public likes: number;

@@ -30,10 +30,14 @@ async function bootstrap() {
   const user0 = new UserEntity();
   user0.login = 'admin';
   user0.password = 'admin';
+  user0.firstname = 'admin';
+  user0.lastname = 'pavlov';
 
   const user1 = new UserEntity();
   user1.login = 'nikyoff';
   user1.password = 'why_you_read_my_password';
+  user1.firstname = 'niky';
+  user1.lastname = 'off';
 
   const post0 = new PostEntity();
   post0.text = 'hello how are you?';
@@ -95,7 +99,12 @@ async function bootstrap() {
     })
     .then((posts) => {
       console.log('Loaded posts: ', posts);
-    });
+
+      return userRepository.find();
+    })
+  .then((users) => {
+      console.log('Loaded users: ', users);
+  });
 }
 
 APP_DATA_SOURCE.initialize()
