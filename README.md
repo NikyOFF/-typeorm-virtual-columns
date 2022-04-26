@@ -71,8 +71,6 @@ export class PersonEntity {
         name: 'fullname',
         defaultValue: '',
         apply: (queryBuilder) => {
-            queryBuilder.mainAlias.
-            
             queryBuilder.addSelect(`CONCAT(${queryBuilder.alias}.firstname, ' ', ${queryBuilder.alias}.lastname)`, 'fullname');
         },
     })
